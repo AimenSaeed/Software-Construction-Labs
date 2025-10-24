@@ -2,30 +2,42 @@
 using namespace std;
 
 int main() {
-    int marks;
-    cout << "Enter your marks (0 - 100): ";
-    cin >> marks;
-
-    if (marks >= 90)
-        cout << "Grade: A" << endl;
-    else if (marks >= 75)
-        cout << "Grade: B" << endl;
-    else if (marks >= 50)
-        cout << "Grade: C" << endl;
-    else
-        cout << "Grade: F" << endl;
-
-    // -------------------------------
-    // Task 2: Multiplication Table (loop)
-    // -------------------------------
-    int number;
-    cout << "\nEnter a number to print its multiplication table: ";
-    cin >> number;
-
-    cout << "Multiplication Table of " << number << ":" << endl;
-    for (int i = 1; i <= 10; i++) {
-        cout << number << " x " << i << " = " << number * i << endl;
+    int arr[5] = {5, 3, 8, 1, 2};
+    int n = 5;
+    
+    // Find Max and Min
+    int max = arr[0], min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+        if (arr[i] < min)
+            min = arr[i];
     }
+    
+    cout << "Before Sorting: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    // Bubble Sort
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "After Sorting: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    cout << "Maximum: " << max << endl;
+    cout << "Minimum: " << min << endl;
 
     return 0;
 }
+
